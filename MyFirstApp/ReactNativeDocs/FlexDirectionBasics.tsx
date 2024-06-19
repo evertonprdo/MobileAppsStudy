@@ -91,6 +91,7 @@ const styles = StyleSheet.create(
             color: 'white',
         },
         label: {
+            color: 'white',
             textAlign: 'center',
             marginBottom: 10,
             fontSize: 24,

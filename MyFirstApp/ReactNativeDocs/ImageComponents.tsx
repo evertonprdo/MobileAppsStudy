@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Image, View, StyleSheet, Text, TouchableOpacity } from "react-native";
+import { Image, View, StyleSheet, Text, TouchableOpacity, StatusBar } from "react-native";
 
 const ImageArray = [
     require('../assets/img/image-1.jpg'),
@@ -22,10 +22,6 @@ export default function ImageComponents() {
 
 return (
     <View style= {styles.container}>
-        <View style= { styles.labelContainer }>
-            <Text style= {styles.label}>Image React Native Docs</Text>
-        </View>
-
         <View style= { styles.imageContainer }>
             <Image source= { ImageArrayUri[selectedPos] } style={styles.image} />
         </View>
@@ -52,23 +48,11 @@ const styles = StyleSheet.create(
     {
         container: {
             flex: 1,
-            gap: 10,
+            justifyContent: 'space-between',
+            gap: 25,
 
-            padding: 10,
-
-            borderRadius: 10,
-            backgroundColor: '#3d414f',
-        },
-
-        labelContainer: {
-            flex: 1,
-            alignItems: 'center',
-            justifyContent: 'center',
-        },
-        label: {
-            fontSize: 24,
-            fontWeight: 'bold',
-            color: 'white'
+            paddingHorizontal: 10,
+            paddingVertical: 20
         },
 
         imageContainer: {

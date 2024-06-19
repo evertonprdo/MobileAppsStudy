@@ -33,7 +33,7 @@ const PreviewLayout = ({ children, columnGap, handleColumnGapChange, rowGap, han
         <View style={styles.inputContainer}>
 
             <View style={styles.itemsCenter}>
-                <Text>{ "Row Gap" }</Text>
+                <Text style= {{ color: 'white' }}>{ "Row Gap" }</Text>
                 <TextInput 
                     style={styles.input} 
                     value={String(rowGap)} 
@@ -42,7 +42,7 @@ const PreviewLayout = ({ children, columnGap, handleColumnGapChange, rowGap, han
             </View>
 
             <View style={styles.itemsCenter}>
-                <Text>{ "Column Gap" }</Text>
+                <Text style= {{ color: 'white' }}>{ "Column Gap" }</Text>
                 <TextInput 
                     style={styles.input} 
                     value={String(columnGap)} 
@@ -64,7 +64,9 @@ const styles = StyleSheet.create({
     },
     previewContainer: { padding: 10, flex: 1 },
     input: {
+        color: 'white',
         borderBottomWidth: 1,
+        borderBottomColor: 'white',
         paddingVertical: 3,
         width: 50,
         textAlign: 'center',
