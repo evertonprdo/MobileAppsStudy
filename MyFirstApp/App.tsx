@@ -1,22 +1,56 @@
 import React from "react";
-import { View, StyleSheet } from "react-native";
+import { StyleSheet, View, Text, Button, TextInput } from "react-native";
 
-import FlexDirectionBasics from "./components/FlexDirectionBasics";
-import RowGapAndColumnGap from "./components/RowGapColumnGap";
-import ImageComponents from "./components/ImageComponents";
-import ButtonBasics from "./components/HandlingTouches/ButtonBasics";
-import Touchables from "./components/HandlingTouches/Touchables";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator, NativeStackScreenProps } from "@react-navigation/native-stack";
 
-const MyFirstApp = () => {
+import ImageScreen from "./ReactNativeDocs/ImageComponents";
+import FlexDirectionScreen from "./ReactNativeDocs/FlexDirectionBasics";
+
+type ScreenProps<T extends keyof RootStack> = NativeStackScreenProps<RootStack, T>
+export type RootStack = {
+    Home: undefined;
+    Image: undefined;
+    FlexBasics: undefined;
+};
+
+const Stack = createNativeStackNavigator<RootStack>();
+
+export default function MyFirstApp() {
     return (
-        //<Touchables />
-        <View style= {styles.mainContainer}>
-            <ImageComponents />
-        </View>
+        <NavigationContainer>
+            <Stack.Navigator initialRouteName="Home">
+                <Stack.Screen
+                    name= "Home"
+                    component= { HomeScreen }
+                />
+                <Stack.Screen
+                    name="Image"
+                    component= { ImageScreen }
+                />
+                <Stack.Screen
+                    name="FlexBasics"
+                    component= { FlexDirectionScreen }
+                />
+            </Stack.Navigator>
+        </NavigationContainer>
     )
 }
 
-export default MyFirstApp;
+export function HomeScreen({ navigation } : ScreenProps<'Home'>) {
+    return (
+        <View style= {styles.defaultAlign}>
+            <Button
+                title= { 'Image Screen' } 
+                onPress= { () => { navigation.navigate('Image') }}
+            />
+            <Button
+                title= { 'Flex Basics' } 
+                onPress= { () => { navigation.navigate('FlexBasics') }}
+            />
+        </View>
+    )
+}
 
 const styles = StyleSheet.create(
     {
@@ -26,6 +60,11 @@ const styles = StyleSheet.create(
             paddingVertical: 50,
 
             backgroundColor: '#10121c',
+        },
+        defaultAlign: {
+            flex: 1,
+            alignItems: 'center',
+            justifyContent: 'center'
         }
     }
 )
