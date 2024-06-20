@@ -1,38 +1,20 @@
-import { Text, View, StyleSheet, Pressable } from "react-native";
-import { Link } from "expo-router";
+import { WebView } from 'react-native-webview';
+import Constants from 'expo-constants';
+import { StyleSheet } from 'react-native';
 
-export default function Index() {
+export default function App() {
     return (
-        <View style={ styles.container }>
-            <Link href= { "/teste" } asChild >
-                <Pressable style= { styles.buttonContainer }>
-                    <Text>{ "Acess MyExpoRouterApp/teste" }</Text>
-                </Pressable>
-            </Link>
-
-            <Link href= { "/profile" } asChild >
-                <Pressable style= { styles.buttonContainer }>
-                    <Text>{ "Acess MyExpoRouterApp/profile" }</Text>
-                </Pressable>
-            </Link>
-        </View>
+        <WebView
+            style={styles.container}
+            source={{ html: '<iframe width="100%" height="100%" src="https://www.youtube.com/embed/2pvjRz2TOv0" frameborder="0" autoplay: clipboard-write; encrypted-media></iframe>' }}
+        />
     );
 }
 
-const styles = StyleSheet.create(
-    {
-        container: {
-            flex: 1,
-            gap: 20,
-
-            justifyContent: "center",
-            alignItems: "center",
-        },
-        buttonContainer: {
-            backgroundColor: 'orange',
-            paddingHorizontal: 33,
-            paddingVertical: 12,
-            borderRadius: 5
-        }
-    }
-)
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        //marginTop: Constants.statusBarHeight,
+        margin: -3
+    },
+});
