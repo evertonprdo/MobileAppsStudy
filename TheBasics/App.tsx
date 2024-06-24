@@ -1,53 +1,21 @@
-import React, { useState, useEffect } from 'react';
-import { View, StyleSheet, Dimensions, Text } from 'react-native';
-import Circle from './components/Circle';
+import createNavigatorFactory from "./src/customNavigator";
+import { NavigationContainer } from "@react-navigation/native";
+import { SafeAreaProvider } from "react-native-safe-area-context";
 
-const { width, height } = Dimensions.get('window');
+import { HomeScreen, InputContent, PressCount, NestedNavigator } from "./src/pages";
 
-const getRandomPosition = () => {
-    const x = Math.random() * (width - 50);
-    const y = Math.random() * (height - 50);
-    return { top: y, left: x };
-};
+const My = createNavigatorFactory();
 
-const App = () => {
-    const [position, setPosition] = useState(getRandomPosition());
-    const [score, setScore] = useState(0);
-    console.log('Renderizou');
-
-    useEffect(() => {
-        const interval = setInterval(() => {
-            setPosition(getRandomPosition());
-        }, 1500);
-
-        return () => clearInterval(interval);
-    }, []);
-
-    const handlePress = () => {
-        setScore(score + 1);
-        setPosition(getRandomPosition());
-    };
-
-    return (
-        <View style={styles.container}>
-            <Text style={styles.score}>Score: {score}</Text>
-            <Circle onPress={handlePress} position={position} />
-        </View>
-    );
-};
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
-    score: {
-        fontSize: 24,
-        fontWeight: 'bold',
-        position: 'absolute',
-        top: 40,
-    },
-});
-
-export default App;
+export default function App() {
+return(
+    <SafeAreaProvider>
+        <NavigationContainer>
+            <My.Navigator initialRouteName="Home">
+                <My.Screen name="Home" component={ HomeScreen }/>
+                <My.Screen name="one" component={ PressCount }/>
+                <My.Screen name="two" component={ InputContent }/>
+                <My.Screen name="tree" component={ NestedNavigator }/>
+            </My.Navigator>
+        </NavigationContainer>
+    </SafeAreaProvider>
+)}
