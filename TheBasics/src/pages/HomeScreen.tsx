@@ -4,7 +4,7 @@ import type { StackScreenProps } from "@react-navigation/stack";;
 import type { RootStackParamList } from '../../App';
 
 export default function HomeScreen({ navigation }: StackScreenProps<RootStackParamList, 'home'>) {
-    const RootKeys: Array<keyof RootStackParamList> = ['one', 'two', 'three', 'four', 'five', 'six']
+    const RootKeys: Array<keyof RootStackParamList> = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'ten']
 
 return(
     <View style= {style.mainContainer}>

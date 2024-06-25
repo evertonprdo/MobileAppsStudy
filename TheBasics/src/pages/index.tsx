@@ -5,5 +5,8 @@ import CoreComponents from "../components/CoreComponents";
 import SwitchComponent from "../components/Switch";
 import FormComponent from "../components/FormComponent";
 import FormObj from "../components/FormObj";
+import FormNestedObj from "../components/FormNestedObj";
+import ToDoApp from "../components/ToDoList";
+import VersionForm from "../components/VersionForm";
 
-export { HomeScreen, InputContent, PressCount, CoreComponents, SwitchComponent, FormComponent, FormObj }
+export { HomeScreen, InputContent, PressCount, CoreComponents, SwitchComponent, FormComponent, FormObj, FormNestedObj, ToDoApp, VersionForm }
