@@ -1,19 +1,24 @@
 import { View, Pressable, StyleSheet, Text } from 'react-native'
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import type { StackScreenProps } from "@react-navigation/stack";;
-import type { ParamListBase } from "@react-navigation/native";
+import type { RootStackParamList } from '../../App';
 
-export default function HomeScreen({ navigation }: StackScreenProps<ParamListBase>) {
-    const Insets = useSafeAreaInsets();
+export default function HomeScreen({ navigation }: StackScreenProps<RootStackParamList, 'home'>) {
+    const RootKeys: Array<keyof RootStackParamList> = ['one', 'two', 'three', 'four', 'five', 'six']
+
 return(
-    <View style= {{flex: 1, justifyContent: 'space-around', alignItems: 'center', paddingTop: Insets.top}}>
-        <Pressable onPress={ () => navigation.navigate('one') } style= {style.button}>
-            <Text selectable= {false}>{ 'One' }</Text>
-        </Pressable>
-        <Pressable onPress={ () => navigation.navigate('two') } style= {style.button}>
-            <Text selectable= {false} style= {{cursor: 'pointer'}}>{ 'Two' }</Text>
-        </Pressable>
+    <View style= {style.mainContainer}>
+        {RootKeys.map((value, i) => {
+            return (
+                <Pressable
+                    key={i}
+                    onPress={ () => navigation.navigate(value) }
+                    style= {style.button}
+                >
+                    <Text selectable= {false}>{ value }</Text>
+                </Pressable>
+            )
+        })}
     </View>
 )}
 
@@ -25,5 +30,10 @@ const style = StyleSheet.create({
         width: '75%',
         backgroundColor: '#ccc',
         borderRadius: 5
+    },
+    mainContainer: {
+        flex: 1,
+        justifyContent: 'space-around',
+        alignItems: 'center',
     }
 })

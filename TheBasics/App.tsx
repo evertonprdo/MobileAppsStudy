@@ -1,21 +1,30 @@
-import createNavigatorFactory from "./src/customNavigator";
 import { NavigationContainer } from "@react-navigation/native";
-import { SafeAreaProvider } from "react-native-safe-area-context";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
-import { HomeScreen, InputContent, PressCount, NestedNavigator } from "./src/pages";
+import { HomeScreen, InputContent, PressCount, CoreComponents, SwitchComponent, FormComponent, FormObj } from "./src/pages";
 
-const My = createNavigatorFactory();
+export type RootStackParamList = {
+    home: undefined
+    one: undefined
+    two: undefined
+    three: undefined
+    four: undefined
+    five: undefined
+    six: undefined
+}
 
+const Stack = createNativeStackNavigator<RootStackParamList>();
 export default function App() {
 return(
-    <SafeAreaProvider>
-        <NavigationContainer>
-            <My.Navigator initialRouteName="Home">
-                <My.Screen name="Home" component={ HomeScreen }/>
-                <My.Screen name="one" component={ PressCount }/>
-                <My.Screen name="two" component={ InputContent }/>
-                <My.Screen name="tree" component={ NestedNavigator }/>
-            </My.Navigator>
-        </NavigationContainer>
-    </SafeAreaProvider>
+    <NavigationContainer>
+        <Stack.Navigator initialRouteName="home">
+            <Stack.Screen name="home" component={ HomeScreen }/>
+            <Stack.Screen name="one" component={ PressCount }/>
+            <Stack.Screen name="two" component={ InputContent }/>
+            <Stack.Screen name="three" component={ CoreComponents }/>
+            <Stack.Screen name="four" component={ SwitchComponent }/>
+            <Stack.Screen name="five" component={ FormComponent }/>
+            <Stack.Screen name="six" component={ FormObj }/>
+        </Stack.Navigator>
+    </NavigationContainer>
 )}
