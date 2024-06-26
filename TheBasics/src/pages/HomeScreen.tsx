@@ -1,39 +1,45 @@
-import { View, Pressable, StyleSheet, Text } from 'react-native'
+import { View, Pressable, StyleSheet, Text, ScrollView } from 'react-native'
 
 import type { StackScreenProps } from "@react-navigation/stack";;
-import type { RootStackParamList } from '../../App';
+import type { RootStackParamList } from '.';
 
-export default function HomeScreen({ navigation }: StackScreenProps<RootStackParamList, 'home'>) {
-    const RootKeys: Array<keyof RootStackParamList> = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'ten']
+import { RootListNames } from '.';
 
+export default function HomeScreen({ navigation }: StackScreenProps<RootStackParamList & { HomeScreen: undefined }, 'HomeScreen'>) {
 return(
-    <View style= {style.mainContainer}>
-        {RootKeys.map((value, i) => {
-            return (
-                <Pressable
-                    key={i}
-                    onPress={ () => navigation.navigate(value) }
-                    style= {style.button}
-                >
-                    <Text selectable= {false}>{ value }</Text>
-                </Pressable>
-            )
-        })}
-    </View>
+    <ScrollView>
+        <View style= {style.mainContainer}>
+            {RootListNames.map((value, i) => {
+                return (
+                    <Pressable
+                        key={i}
+                        onPress={ () => navigation.navigate(value) }
+                        style= {style.button}
+                    >
+                        <Text style={{ color: '#111',fontWeight: '500', letterSpacing: 0.7 }} selectable= {false}>{ value }</Text>
+                    </Pressable>
+                )
+            })}
+        </View>
+    </ScrollView>
 )}
 
 const style = StyleSheet.create({
     button: {
         justifyContent: 'center',
         alignItems: 'center',
-        height: 50,
+        height: 45,
         width: '75%',
-        backgroundColor: '#ccc',
-        borderRadius: 5
+        backgroundColor: '#fff',
+        borderRadius: 5,
+        borderWidth: 1,
+        borderColor: '#ccc'
     },
     mainContainer: {
         flex: 1,
         justifyContent: 'space-around',
         alignItems: 'center',
-    }
+        gap: 17,
+        paddingTop: 10,
+    },
 })
