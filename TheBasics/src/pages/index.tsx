@@ -7,8 +7,9 @@ import FormNestedObj from "../components/FormNestedObj";
 import ToDoApp from "../components/ToDoList";
 import VersionForm from "../components/VersionForm";
 import FilterableProductTable from "../ThinkingInReact";
+import SculptureList from "../components/AddingInteractivity";
 
-const RootStackComponents = { FilterableProductTable, PressCount, SwitchComponent, InputContent, FormComponent, FormObj, FormNestedObj, ToDoApp, VersionForm, }
+const RootStackComponents = { FilterableProductTable, SculptureList,PressCount, SwitchComponent, InputContent, FormComponent, FormObj, FormNestedObj, ToDoApp, VersionForm, }
 export default RootStackComponents;
 
 export type RootStackParamList = { [K in keyof typeof RootStackComponents]: undefined; }
