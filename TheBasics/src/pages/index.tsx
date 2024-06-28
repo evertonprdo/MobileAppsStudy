@@ -1,15 +1,11 @@
-import InputContent from "../components/InputContent";
-import PressCount from "../components/PressCount";
-import SwitchComponent from "../components/Switch";
-import FormComponent from "../components/FormComponent";
-import FormObj from "../components/FormObj";
 import FormNestedObj from "../components/FormNestedObj";
 import ToDoApp from "../components/ToDoList";
-import VersionForm from "../components/VersionForm";
 import FilterableProductTable from "../ThinkingInReact";
 import SculptureList from "../components/AddingInteractivity";
+import CityQuiz from "../components/CityQuiz";
+import Accordion from "../components/Accordion";
 
-const RootStackComponents = { FilterableProductTable, SculptureList,PressCount, SwitchComponent, InputContent, FormComponent, FormObj, FormNestedObj, ToDoApp, VersionForm, }
+const RootStackComponents = { FilterableProductTable, SculptureList, CityQuiz, ToDoApp, Accordion, FormNestedObj }
 export default RootStackComponents;
 
 export type RootStackParamList = { [K in keyof typeof RootStackComponents]: undefined; }
