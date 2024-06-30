@@ -11,7 +11,8 @@ type CardContentProps = {
 export default function CardContent({ sculpture, onPressDetails, showDetails }: CardContentProps) {
     return (
         <View style= { styles.bodyContainer }>
-            <Thumbnail 
+            <Thumbnail
+                key={ sculpture.alt }
                 url={ sculpture.url }
                 alt= { sculpture.alt }
             />

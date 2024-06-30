@@ -33,7 +33,7 @@ export default function CityQuiz() {
                         <TextInput 
                             value= { answer }
                             onChangeText={ handleTextAreaChange }
-                            inputMode={ status !== "submitting" ? "none" : "text" }
+                            inputMode={ status !== "submitting" ? "text" : "none" }
                             onKeyPress={ (e) => e.nativeEvent.key === 'Enter' && handleSubmit }
                             style= { styles.answerButton }
                         />
@@ -109,7 +109,6 @@ const styles = StyleSheet.create({
     },
     answerButton: {
         ...border,
-        flex: 1,
         paddingVertical: 7,
         paddingHorizontal: 10,
         justifyContent: 'center',
