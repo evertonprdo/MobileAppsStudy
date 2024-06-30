@@ -1,7 +1,7 @@
 import FormNestedObj from "../components/FormNestedObj";
-import ToDoApp from "../components/ToDoList";
-import FilterableProductTable from "../ThinkingInReact";
-import SculptureList from "../components/AddingInteractivity";
+import ToDoApp from "./TaskApp";
+import FilterableProductTable from "./FilterableProductTable";
+import SculptureList from "./SculptureList";
 import CityQuiz from "../components/CityQuiz";
 import Accordion from "../components/Accordion";
 
