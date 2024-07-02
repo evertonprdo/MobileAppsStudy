@@ -1,6 +1,10 @@
-import { Button, StyleSheet, Text, View } from 'react-native';
-import React, { useState } from 'react';
+import { useState } from 'react';
+import { StyleSheet, Text, View } from 'react-native';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+
 import { RootComponentsList, RootListNames } from './src/Root';
+import Navigation from './src/Root/Menu';
+import { StatusBar } from 'expo-status-bar';
 
 export default function App() {
     const [ screenName, setScreenName ] = useState("HomeScreen")
@@ -16,30 +20,29 @@ export default function App() {
     }
     
     return (
-        <View style= {styles.container}>
-            <View style= {styles.contentContainer}>
-                <Screen/>
-            </View>
+        <SafeAreaProvider>
+            <View style= {styles.container}>
+                <StatusBar 
+                    style='light' 
+                    translucent= { true } 
+                />
 
-            <View style= {styles.footerContainer}>
-                { RootListNames.map(item => {
-                    return (
-                        <Button 
-                            key={"Button_" + item}
-                            title={ item }
-                            onPress={ () => setScreenName(item) }
-                        />
-                    )
-                }) }
+                <Navigation 
+                    onChangeScreen={ setScreenName }
+                />
+
+                <View style= {styles.contentContainer}>
+                    <Screen/>
+                </View>
             </View>
-        </View>
+        </SafeAreaProvider>
     )
 }
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#e3e3e3',
+        backgroundColor: '#348e91',
 
         justifyContent: 'space-between',
     },
@@ -54,5 +57,6 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
+        backgroundColor: '#213635'
     }
 });
