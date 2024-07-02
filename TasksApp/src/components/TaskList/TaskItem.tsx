@@ -1,20 +1,19 @@
-import { useContext, useState } from "react"
+import { useState } from "react"
 import { Switch, View } from "react-native"
 
 import st from "../../styles"
 import TaskAppButton from "../TaskAppButton"
+import TaskLabel from "./TaskLabel"
 
 import type { Task } from "../../model/DATA"
-import type { Action } from "../../model/tasksReducer"
-import { TasksDispatchContext } from "../../model/TasksContext"
-import TaskLabel from "./TaskLabel"
+import { useTasksDispatch } from "../../model/TasksContext"
 
 type TaskItemProps = {
     task: Task
 }
 export default function TaskItem({ task }: TaskItemProps) {
     const [ isEditing, setIsEditing ] = useState(false)
-    const dispatch = useContext(TasksDispatchContext) as React.Dispatch<Action>
+    const dispatch = useTasksDispatch()
 
     function handleOnChangeText(value: string) {
         dispatch({

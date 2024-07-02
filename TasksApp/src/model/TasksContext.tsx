@@ -1,4 +1,4 @@
-import { createContext, useReducer } from "react";
+import { createContext, useContext, useReducer } from "react";
 
 import { initialTasks, type Tasks } from "./DATA";
 import { tasksReducer, type Action } from "./tasksReducer";
@@ -19,4 +19,12 @@ export default function TasksProvider({ children }: TasksProviderProps) {
             </TasksDispatchContext.Provider>
         </TasksContext.Provider>
     )
+}
+
+export function useTasks() {
+    return useContext(TasksContext) as Tasks
+}
+
+export function useTasksDispatch()  {
+    return useContext(TasksDispatchContext) as React.Dispatch<Action>
 }

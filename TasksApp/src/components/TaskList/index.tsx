@@ -3,11 +3,10 @@ import { FlatList } from "react-native"
 import TaskItem from "./TaskItem"
 import st from "../../styles"
 
-import { useContext } from "react"
-import { TasksContext } from "../../model/TasksContext"
+import { useTasks } from "../../model/TasksContext"
 
 export default function TaskList() {
-    const tasks = useContext(TasksContext)
+    const tasks = useTasks()
     return (
         <FlatList 
             data= { tasks }

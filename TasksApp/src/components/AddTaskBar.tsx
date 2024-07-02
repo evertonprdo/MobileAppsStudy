@@ -1,15 +1,14 @@
-import { useContext, useState } from "react";
+import { useState } from "react";
 import { TextInput, View } from "react-native";
 
 import TaskAppButton from "./TaskAppButton";
 import st from "../styles";
 
-import { TasksDispatchContext } from "../model/TasksContext";
-import type { Action } from "../model/tasksReducer";
+import { useTasksDispatch } from "../model/TasksContext";
 
 export default function AddTaskBar() {
     const [ text, setText ] = useState('')
-    const dispatch = useContext(TasksDispatchContext) as React.Dispatch<Action>
+    const dispatch = useTasksDispatch()
 
     function handleOnPress() {
         setText('')
