@@ -5,10 +5,7 @@ import Drawer from "./Drawer";
 import NavigationBar from "./NavigationBar";
 import { useState } from "react";
 
-type NavigationProps = {
-    onChangeScreen: (screen: string) => void 
-}
-export default function Navigation({ onChangeScreen }: NavigationProps) {
+export default function DrawerMenu() {
     const [ showDrawer, setShowDrawer ] = useState(false)
 
     return (
@@ -18,7 +15,6 @@ export default function Navigation({ onChangeScreen }: NavigationProps) {
             />
             <Drawer
                 drawerVisibility= { showDrawer }
-                onChangeScreen={ onChangeScreen }
                 onClose= { () => setShowDrawer(false) }
             />
         </View>

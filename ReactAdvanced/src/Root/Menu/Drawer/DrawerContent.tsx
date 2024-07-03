@@ -1,13 +1,12 @@
 import { Text, TouchableWithoutFeedback, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
+
 import s from "../styles";
 import AppList from "./AppsList";
 import { RootListNames } from "../..";
 
-type DrawerContentProps = {
-    onChangeScreen: (screen: string) => void
-}
-export default function DrawerContent({ onChangeScreen }: DrawerContentProps) {
+
+export default function DrawerContent() {
     return (
         <TouchableWithoutFeedback>
             <SafeAreaView style= { s.drawerContentContainer }>
@@ -17,7 +16,6 @@ export default function DrawerContent({ onChangeScreen }: DrawerContentProps) {
 
                 <AppList 
                     appsName={ RootListNames }
-                    onChangeScreen= { onChangeScreen }
                 />
             </SafeAreaView>
         </TouchableWithoutFeedback>

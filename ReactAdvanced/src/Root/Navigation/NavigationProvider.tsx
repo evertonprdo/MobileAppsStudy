@@ -1,13 +1,15 @@
-import { type PropsWithChildren } from "react"
-import { ScreenContext, DrawerVisibility } from "./rootContext"
+import { useState, type PropsWithChildren } from "react"
+import { ScreenContext, SetScreenContext } from "./rootContext"
+import { RootListNamesType } from ".."
 
 export default function NavigationProvider({ children }: PropsWithChildren) {
-    const [  ]
+    const [ name, setName ] = useState<RootListNamesType>("HomeScreen")
+
     return (
-        <ScreenContext.Provider value={ screenName }>
-            <DrawerVisibility.Provider value= { showDrawer }>
+        <ScreenContext.Provider value={ name }>
+            <SetScreenContext.Provider value={ setName }>
                 { children }
-            </DrawerVisibility.Provider>
+            </SetScreenContext.Provider>
         </ScreenContext.Provider>
     )
 }

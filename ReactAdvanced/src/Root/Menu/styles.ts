@@ -1,4 +1,4 @@
-import { StyleSheet } from "react-native";
+import { Platform, StyleSheet } from "react-native";
 import type { StyleProp, ViewStyle, TextStyle } from "react-native";
 
 const flexCenter: StyleProp<ViewStyle> = {
@@ -17,7 +17,7 @@ export const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
 
-        maxHeight: 85,
+        maxHeight: Platform.OS === 'web' ? 57 : 83,
         paddingHorizontal: 15,
 
         backgroundColor: '#348e91'
