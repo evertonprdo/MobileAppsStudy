@@ -1,7 +1,10 @@
+import AutoFocus from "../Pages/AutoFocus";
+import ChatRoom from "../Pages/ChatRoom";
+import CounterMount from "../Pages/Counter";
 import HomeScreen from "../Pages/HomeScreen";
 import MultiFileFocus from "../Pages/MultiFileFocus";
 import DashBoard from "../Pages/useRef";
-import VideoPlayer from "../Pages/useRefDOM";
+import VideoPlayer from "../Pages/VideoPlayerWithEffect";
 
 export type RootListNamesType = keyof typeof RootComponentsList
 export type RootParamList = {
@@ -11,7 +14,10 @@ export const RootComponentsList =
 { 
     HomeScreen, 
     DashBoard,
+    MultiFileFocus,
     VideoPlayer,
-    MultiFileFocus
+    ChatRoom,
+    AutoFocus,
+    CounterMount
 }
 export const RootListNames = Object.keys(RootComponentsList) as Array<keyof RootParamList>
