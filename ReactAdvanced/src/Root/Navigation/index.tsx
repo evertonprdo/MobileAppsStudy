@@ -12,7 +12,9 @@ export default function Navigation() {
                 style='light' 
                 translucent= { true } 
             />
+            
             <DrawerMenu />
+
             <ContentScreen 
                 name= { useScreen() }
             />
