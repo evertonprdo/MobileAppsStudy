@@ -25,6 +25,9 @@ export const styles = StyleSheet.create({
         width: isWeb ? '100%' : undefined,
         margin: isWeb ? 'auto' : undefined
     },
+    loadingIndicator: {
+        flex: 1
+    },
 
     prodListContainer: {
         gap: 17,
@@ -40,12 +43,14 @@ export const styles = StyleSheet.create({
         ...flexCenter,
         flexDirection: 'row',
 
-        backgroundColor: '#f2f2f2',
+        backgroundColor: '#fff',
     },
 
     thumbnailContainer: {
         height: '100%',
         width: isWeb ? 173 : 120,
+        paddingVertical: 12,
+        paddingLeft: 5
     },
     image: {
         borderRadius: 7,
@@ -53,7 +58,7 @@ export const styles = StyleSheet.create({
         width: '100%',
         height: '100%',
 
-        resizeMode: 'cover',
+        resizeMode: 'contain',
     },
 
     descriptionContainer: {
