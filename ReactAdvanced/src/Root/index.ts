@@ -1,3 +1,4 @@
+import Login from "../Pages/Login";
 import HomeScreen from "../Pages/HomeScreen";
 import MultiChatRoom from "../Pages/MultiChatRoom";
 import Products from "../Pages/ProductList";
@@ -13,5 +14,6 @@ export const RootComponentsList =
     Products,
     MultiChatRoom,
     VideoPlayer,
+    Login
 }
 export const RootListNames = Object.keys(RootComponentsList) as Array<keyof RootParamList>
