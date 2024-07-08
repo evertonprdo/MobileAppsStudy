@@ -1,7 +1,7 @@
 import { View } from "react-native";
 
 import s from "../style";
-import Form from "./LoginSection";
+import FormLogin from "./LoginSection";
 import SelectTheme from "./SelectTheme";
 
 import { useTheme } from "../Hooks";
@@ -18,12 +18,9 @@ export default function Login() {
     }
 
     return (
-        <View
-            style= { mainContainerStyle }
-        >
-            <Form
+        <View style= { mainContainerStyle }>
+            <FormLogin/>
 
-            />
             <SelectTheme
                 onValueChange={ handleOnChangeTheme }
             />

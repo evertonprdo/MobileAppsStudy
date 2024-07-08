@@ -19,7 +19,7 @@ export default function SelectTheme({ onValueChange }: SelectThemeProps) {
                 onValueChange={ onValueChange }
             />
             <Text
-                style= {textStyle}
+                style= { textStyle }
             >
                 Use dark mode
             </Text>

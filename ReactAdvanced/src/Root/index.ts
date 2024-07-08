@@ -14,6 +14,6 @@ export const RootComponentsList =
     Products,
     MultiChatRoom,
     VideoPlayer,
-    Login
+    Login,
 }
 export const RootListNames = Object.keys(RootComponentsList) as Array<keyof RootParamList>

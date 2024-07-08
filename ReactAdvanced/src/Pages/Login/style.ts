@@ -48,9 +48,22 @@ export const styles = StyleSheet.create({
         gap: 33,
         paddingBottom: 17
     },
+    formLabelsContainer: {
+        gap: 12
+    },
+    formLabelContainer: {
+        flexDirection: 'row',
+        ...flexCenter,
+        gap: 7
+    },
+    labelInput: {
+        flex: 1,
+        ...border,
+        borderColor: '#ccc',
 
-    darkFormContainer: {
-
+        height: 42,
+        paddingHorizontal: 10,
+        backgroundColor: '#fff'
     },
 
     welcomeText: {
@@ -72,14 +85,23 @@ export const styles = StyleSheet.create({
 
     buttonContainer: {
         flexDirection: 'row',
+        ...flexCenter,
         gap: 10,
+    },
+    textInfo: {
+        ...text,
+        flex: 0.73,
+        fontStyle: 'italic'
+    },
+    textInfoDark: {
+        color: '#fff'
     },
 
     button: {
         ...flexCenter,
 
         flex: 1,
-        height: 47,
+        height: 42,
 
         ...border,
         borderColor: '#aaa'
@@ -93,6 +115,7 @@ export const styles = StyleSheet.create({
         ...text,
         userSelect: 'none',
         fontWeight: '500',
+
     },
     darkTextButton: {
         color: '#fff'
